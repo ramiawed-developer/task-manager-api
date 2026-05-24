@@ -1,4 +1,5 @@
 import express from "express";
+import { env } from "./config/env";
 
 export const app = express();
 
@@ -15,6 +16,21 @@ app.get("/api/info", (_req, res) => {
   res.status(200).json({
     name: "task-manager-api",
     version: "1.0.0",
-    environment: process.env.NODE_ENV || "development",
+    environment: env.nodeEnv,
+    features: {
+      tasksApi: env.enableTasksApi,
+    },
+  });
+});
+
+app.get("/tasks", (_req, res) => {
+  if (!env.enableTasksApi) {
+    return res.status(404).json({
+      message: "Tasks API is disabled",
+    });
+  }
+
+  return res.status(200).json({
+    tasks: [],
   });
 });
