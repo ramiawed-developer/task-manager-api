@@ -15,7 +15,8 @@ app.get("/health", (_req, res) => {
 app.get("/api/info", (_req, res) => {
   res.status(200).json({
     name: "task-manager-api",
-    version: "1.0.0",
+    version: env.appVersion,
+    commitSha: env.commitSha,
     environment: env.nodeEnv,
     features: {
       tasksApi: env.enableTasksApi,

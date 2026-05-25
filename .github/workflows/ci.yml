@@ -26,5 +26,14 @@ jobs:
       - name: Type check
         run: npm run typecheck
 
+      - name: Run unit tests
+        run: npm test
+
       - name: Build project
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-build-${{ github.sha }}
+          path: dist
