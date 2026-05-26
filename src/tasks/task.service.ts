@@ -11,7 +11,7 @@ export function createTask(title: string): Task {
   return {
     id: randomUUID(),
     title: trimmedTitle,
-    completed: false,
+    completed: true,
     createdAt: new Date(),
   };
 }
