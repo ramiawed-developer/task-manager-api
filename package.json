@@ -15,7 +15,10 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "docker:build": "docker build -t task-manager-api:local .",
-    "docker:run": "docker run --rm -p 3000:3000 task-manager-api:local"
+    "docker:run": "docker run --rm -p 3000:3000 task-manager-api:local",
+    "compose:up": "docker compose up --build",
+    "compose:down": "docker compose down",
+    "compose:reset": "docker compose down -v"
   },
   "keywords": [],
   "author": "",

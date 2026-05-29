@@ -18,6 +18,9 @@ app.get("/api/info", (_req, res) => {
     version: env.appVersion,
     commitSha: env.commitSha,
     environment: env.nodeEnv,
+    database: {
+      configured: Boolean(env.databaseUrl),
+    },
     features: {
       tasksApi: env.enableTasksApi,
     },
