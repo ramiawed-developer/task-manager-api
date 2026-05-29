@@ -4,4 +4,5 @@ export const env = {
   enableTasksApi: process.env.ENABLE_TASKS_API === "true",
   appVersion: process.env.APP_VERSION || "local",
   commitSha: process.env.COMMIT_SHA || "local",
+  databaseUrl: process.env.DATABASE_URL || "",
 };
