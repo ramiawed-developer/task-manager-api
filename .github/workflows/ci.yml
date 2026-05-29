@@ -46,3 +46,6 @@ jobs:
         with:
           name: app-build-${{ github.sha }}
           path: dist
+
+      - name: Build Docker image
+        run: docker build -t task-manager-api:${{ github.sha }} .
